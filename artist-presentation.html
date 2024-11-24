@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thierry Voitot - Artiste IA et Formateur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1B3B6C;
+            --light-blue: #f0f4f5;
+            --dark-text: #333;
+            --spacing: 2rem;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-blue);
+            color: var(--dark-text);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), #2c5a8f);
+            color: white;
+            padding: var(--spacing) 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto var(--spacing);
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: var(--spacing) auto;
+            padding: var(--spacing);
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: var(--spacing);
+        }
+
+        h1 {
+            font-weight: 600;
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.5rem;
+            margin-top: var(--spacing);
+        }
+
+        .subtitle {
+            font-weight: 300;
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            padding: 1rem;
+            background: var(--light-blue);
+            border-radius: 8px;
+        }
+
+        .services-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .services-list li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .services-list li::before {
+            content: "•";
+            color: var(--primary-blue);
+            position: absolute;
+            left: 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .portfolio-item {
+            aspect-ratio: 1;
+            background: var(--light-blue);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2c5a8f;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: var(--spacing) 1rem;
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <!-- Ajouter ton image spirale ici -->
+            <img src="path-to-your-spiral-image.jpg" alt="Logo artistique">
+        </div>
+        <h1>Thierry Voitot</h1>
+        <div class="subtitle">Artiste IA et Formateur</div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Démarche artistique</h2>
+            <p>Une collaboration unique entre humain et intelligence artificielle, explorant la poésie visuelle et l'innovation dans l'art. Mon travail se situe à l'intersection de la créativité humaine et des possibilités infinies offertes par l'IA, créant ainsi des œuvres qui questionnent notre perception de l'art et de la technologie.</p>
+        </section>
+
+        <section>
+            <h2>Coordonnées</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>Email</strong><br>
+                    <a href="mailto:tvoitot.ia@gmail.com">tvoitot.ia@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Téléphone</strong><br>
+                    +33 6 83 58 27 55
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Prestations proposées</h2>
+            <ul class="services-list">
+                <li>Création artistique sur mesure avec IA : Exploration des possibilités créatives offertes par l'intelligence artificielle pour créer des œuvres uniques et personnalisées.</li>
+                <li>Formation/action sur la symbiose artistique IA/Humain : Partage de connaissances et accompagnement dans la découverte des outils IA pour la création artistique.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <!-- Ajouter tes images ici -->
+                <div class="portfolio-item">
+                    <img src="path-to-artwork-1.jpg" alt="Œuvre artistique 1">
+                </div>
+                <div class="portfolio-item">
+                    <img src="path-to-artwork-2.jpg" alt="Œuvre artistique 2">
+                </div>
+                <div class="portfolio-item">
+                    <img src="path-to-artwork-3.jpg" alt="Œuvre artistique 3">
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
