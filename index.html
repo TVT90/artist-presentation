@@ -114,15 +114,16 @@
         }
 
         .portfolio-item {
-            position: relative;
-            cursor: pointer;
+            aspect-ratio: 1;
+            background: var(--light-blue);
+            border-radius: 8px;
+            overflow: hidden;
         }
 
         .portfolio-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 8px;
             transition: transform 0.3s ease;
         }
 
@@ -146,30 +147,6 @@
                 padding: 1rem;
             }
         }
-
-        /* Lightbox Styles */
-        #lightbox {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            display: none;
-        }
-
-        #lightbox img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        #lightbox:target {
-            display: flex;
-        }
     </style>
 </head>
 <body>
@@ -184,48 +161,67 @@
     <div class="container">
         <section>
             <h2>Démarche artistique</h2>
-            <p>Une collaboration unique entre humain et intelligence artificielle, explorant la poésie visuelle et l'innovation dans l'art...</p>
+            <p>Une collaboration unique entre humain et intelligence artificielle, explorant la poésie visuelle et l'innovation dans l'art. Mon travail se situe à l'intersection de la créativité humaine et des possibilités infinies offertes par l'IA, créant ainsi des œuvres qui questionnent notre perception de l'art et de la technologie.</p>
         </section>
 
         <section>
-            <h2>Événement et actualités</h2>
-            <p>Exposition du 13 au 27 décembre 2024 chez Lorius à Brognart (Horaires d'ouverture de 9h-12h 13h30-17h30 sauf les week-ends et le 25 décembre). Visite privative possible sur rendez-vous (voir Rubrique 'Contacts et informations').</p>
+            <h2>Coordonnées</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>Email</strong><br>
+                    <a href="mailto:tvoitot.ia@gmail.com">tvoitot.ia@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Téléphone</strong><br>
+                    +33 6 83 58 27 55
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Dernier article de presse</h2>
+            <p>Découvrez l'article paru ce matin dans le journal, qui met en lumière mon travail artistique et mes explorations avec l'intelligence artificielle.</p>
+            <div style="text-align: center; margin-bottom: 1rem;">
+                <img src="./images/2024-12-15_Expo IA Thierry VOITOT.jpg" alt="Aperçu de l'article de presse" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+            </div>
+        </section>
+
+        <section>
+            <h2>Événements et actualités</h2>
+            <p>Exposition du 13 au 27 décembre 2024 chez Lorius à Brognart (Horaires d'ouverture de 9h-12h 13h30-17h30 sauf les week-ends et le 25 décembre). Visite privative possible sur rendez-vous (voir Rubrique 'Contacts et informations' pour les coordonnées).</p>
+        </section>
+
+        <section>
+            <h2>Prestations proposées</h2>
+            <ul class="services-list">
+                <li>Création artistique sur mesure avec IA : Exploration des possibilités créatives offertes par l'intelligence artificielle pour créer des œuvres uniques et personnalisées.</li>
+                <li>Formation/action (en individuel ou en famille) sur la symbiose artistique IA/Humain : Partage de connaissances et accompagnement dans la découverte des outils IA pour la création artistique.</li>
+            </ul>
         </section>
 
         <section>
             <h2>Portfolio</h2>
             <div class="portfolio-grid">
-                <a href="#lightbox" class="portfolio-item" id="image1">
+                <div class="portfolio-item">
                     <img src="./images/portfolio-1.png" alt="Création IA artistique 1">
-                </a>
-                <a href="#lightbox" class="portfolio-item" id="image2">
+                </div>
+                <div class="portfolio-item">
                     <img src="./images/portfolio-2.png" alt="Création IA artistique 2">
-                </a>
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio-3.png" alt="Création IA artistique 3">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio-4.png" alt="Création IA artistique 4">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio-5.png" alt="Création IA artistique 5">
+                </div>
+                <div class="portfolio-item">
+                    <img src="./images/portfolio-6.png" alt="Création IA artistique 6">
+                </div>
             </div>
         </section>
     </div>
-
-    <!-- Lightbox -->
-    <div id="lightbox">
-        <img src="" alt="Image agrandie" id="lightbox-img">
-    </div>
-
-    <script>
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const lightbox = document.getElementById('lightbox');
-
-        portfolioItems.forEach(item => {
-            item.addEventListener('click', e => {
-                e.preventDefault();
-                lightboxImg.src = item.querySelector('img').src;
-                window.location = '#lightbox';
-            });
-        });
-
-        lightbox.addEventListener('click', () => {
-            window.location = '#';
-        });
-    </script>
 </body>
 </html>
