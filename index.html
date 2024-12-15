@@ -131,6 +131,49 @@
             transform: scale(1.05);
         }
 
+        /* Nouveaux styles pour la section événements */
+        .event-card {
+            background: white;
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-title {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .event-info {
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+        }
+
+        .event-info strong {
+            color: var(--primary-blue);
+            min-width: 80px;
+        }
+
+        .event-note {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background-color: var(--light-blue);
+            border-radius: 4px;
+            font-style: italic;
+        }
+
         a {
             color: var(--primary-blue);
             text-decoration: none;
@@ -188,7 +231,26 @@
 
         <section>
             <h2>Événements et actualités</h2>
-            <p>Exposition du 13 au 27 décembre 2024 chez Lorius à Brognart (Horaires d'ouverture de 9h-12h 13h30-17h30 sauf les week-ends et le 25 décembre). Visite privative possible sur rendez-vous (voir Rubrique 'Contacts et informations' pour les coordonnées).</p>
+            <div class="event-card">
+                <div class="event-title">Exposition chez Lorius</div>
+                <div class="event-details">
+                    <div class="event-info">
+                        <strong>Dates :</strong>
+                        <span>13 au 27 décembre 2024</span>
+                    </div>
+                    <div class="event-info">
+                        <strong>Horaires :</strong>
+                        <span>9h-12h et 13h30-17h30</span>
+                    </div>
+                    <div class="event-info">
+                        <strong>Lieu :</strong>
+                        <span>Lorius à Brognart</span>
+                    </div>
+                </div>
+                <div class="event-note">
+                    Fermeture les week-ends et le 25 décembre. Visite privative possible sur rendez-vous - contactez-moi pour organiser votre visite.
+                </div>
+            </div>
         </section>
 
         <section>
