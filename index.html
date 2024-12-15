@@ -114,10 +114,7 @@
         }
 
         .portfolio-item {
-            aspect-ratio: 1;
-            background: var(--light-blue);
-            border-radius: 8px;
-            overflow: hidden;
+            position: relative;
             cursor: pointer;
         }
 
@@ -125,6 +122,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            border-radius: 8px;
             transition: transform 0.3s ease;
         }
 
@@ -142,57 +140,35 @@
             color: #2c5a8f;
         }
 
-        /* Style du modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.9);
-        }
-
-        /* Image agrandie */
-        .modal-content {
-            margin: auto;
-            display: block;
-            max-width: 80%;
-            max-height: 80%;
-            animation: zoomIn 0.3s;
-        }
-
-        /* Animation d'agrandissement */
-        @keyframes zoomIn {
-            from {transform: scale(0.8);}
-            to {transform: scale(1);}
-        }
-
-        /* Bouton de fermeture */
-        .close {
-            position: absolute;
-            top: 20px;
-            right: 35px;
-            color: white;
-            font-size: 40px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: #bbb;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
         @media (max-width: 768px) {
             .container {
                 margin: var(--spacing) 1rem;
                 padding: 1rem;
             }
+        }
+
+        /* Lightbox Styles */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            display: none;
+        }
+
+        #lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        #lightbox:target {
+            display: flex;
         }
     </style>
 </head>
@@ -207,40 +183,49 @@
 
     <div class="container">
         <section>
+            <h2>Démarche artistique</h2>
+            <p>Une collaboration unique entre humain et intelligence artificielle, explorant la poésie visuelle et l'innovation dans l'art...</p>
+        </section>
+
+        <section>
+            <h2>Événement et actualités</h2>
+            <p>Exposition du 13 au 27 décembre 2024 chez Lorius à Brognart (Horaires d'ouverture de 9h-12h 13h30-17h30 sauf les week-ends et le 25 décembre). Visite privative possible sur rendez-vous (voir Rubrique 'Contacts et informations').</p>
+        </section>
+
+        <section>
             <h2>Portfolio</h2>
             <div class="portfolio-grid">
-                <div class="portfolio-item" onclick="openModal('./images/portfolio-1.png')">
+                <a href="#lightbox" class="portfolio-item" id="image1">
                     <img src="./images/portfolio-1.png" alt="Création IA artistique 1">
-                </div>
-                <div class="portfolio-item" onclick="openModal('./images/portfolio-2.png')">
+                </a>
+                <a href="#lightbox" class="portfolio-item" id="image2">
                     <img src="./images/portfolio-2.png" alt="Création IA artistique 2">
-                </div>
-                <div class="portfolio-item" onclick="openModal('./images/portfolio-3.png')">
-                    <img src="./images/portfolio-3.png" alt="Création IA artistique 3">
-                </div>
+                </a>
             </div>
         </section>
     </div>
 
-    <!-- Modal pour agrandir les images -->
-    <div id="imageModal" class="modal" onclick="closeModal()">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="modalImage">
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <img src="" alt="Image agrandie" id="lightbox-img">
     </div>
 
     <script>
-        function openModal(imageSrc) {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightbox = document.getElementById('lightbox');
 
-            modal.style.display = 'block';
-            modalImage.src = imageSrc;
-        }
+        portfolioItems.forEach(item => {
+            item.addEventListener('click', e => {
+                e.preventDefault();
+                lightboxImg.src = item.querySelector('img').src;
+                window.location = '#lightbox';
+            });
+        });
 
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.style.display = 'none';
-        }
+        lightbox.addEventListener('click', () => {
+            window.location = '#';
+        });
     </script>
 </body>
 </html>
