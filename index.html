@@ -88,24 +88,7 @@
             border-radius: 8px;
         }
 
-        .services-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .services-list li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .services-list li::before {
-            content: "•";
-            color: var(--primary-blue);
-            position: absolute;
-            left: 0;
-        }
-
+        /* Styles section événements */
         .event-card {
             background: white;
             border-left: 4px solid var(--primary-blue);
@@ -148,7 +131,107 @@
             font-style: italic;
         }
 
-        /* Styles du portfolio */
+        /* Styles section prestations */
+        .services-container {
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-title {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .example-box {
+            background: var(--light-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .example-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .example-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            text-transform: uppercase;
+        }
+
+        .badge-bestseller {
+            background: linear-gradient(135deg, #FF9950, #FF5E50);
+            color: white;
+        }
+
+        .badge-new {
+            background: linear-gradient(135deg, #50C9FF, #5050FF);
+            color: white;
+        }
+
+        .pricing-note {
+            background: var(--light-blue);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        /* Styles section portfolio */
         .portfolio-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -206,6 +289,7 @@
             opacity: 0.9;
         }
 
+        /* Styles généraux */
         a {
             color: var(--primary-blue);
             text-decoration: none;
@@ -242,7 +326,7 @@
             <p>Une collaboration unique entre humain et intelligence artificielle, explorant la poésie visuelle et l'innovation dans l'art. Mon travail se situe à l'intersection de la créativité humaine et des possibilités infinies offertes par l'IA, créant ainsi des œuvres qui questionnent notre perception de l'art et de la technologie.</p>
         </section>
 
-        <section>
+        <section id="contact">
             <h2>Coordonnées</h2>
             <div class="contact-grid">
                 <div class="contact-item">
@@ -290,59 +374,41 @@
 
         <section>
             <h2>Prestations proposées</h2>
-            <ul class="services-list">
-                <li>Création artistique sur mesure avec IA : Exploration des possibilités créatives offertes par l'intelligence artificielle pour créer des œuvres uniques et personnalisées.</li>
-                <li>Formation/action (en individuel ou en famille) sur la symbiose artistique IA/Humain : Partage de connaissances et accompagnement dans la découverte des outils IA pour la création artistique.</li>
-            </ul>
-        </section>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-title">
+                        🎨 Création artistique sur mesure avec IA
+                        <span class="badge badge-bestseller">Bestseller</span>
+                    </div>
+                    <div class="service-description">
+                        Exploration des possibilités créatives offertes par l'intelligence artificielle pour créer des œuvres uniques et personnalisées. Chaque création est le fruit d'un dialogue entre vos souhaits, ma sensibilité artistique et les capacités de l'IA.
+                    </div>
+                    <div class="example-box">
+                        <div class="example-title">Exemples de réalisations</div>
+                        <div class="example-grid">
+                            <div class="example-item">
+                                <strong>Portrait de famille réinventé</strong>
+                                <p>Transformation d'une photo de famille classique en une œuvre d'art unique, mélangeant réalisme et touches oniriques générées par l'IA. Le résultat final combine l'essence émotionnelle de la photo originale avec une dimension artistique nouvelle.</p>
+                            </div>
+                            <div class="example-item">
+                                <strong>Décoration d'intérieur personnalisée</strong>
+                                <p>Création d'une série d'œuvres abstraites basées sur votre intérieur et vos préférences de couleurs. L'IA permet d'explorer des variations infinies tout en maintenant une cohérence esthétique parfaite avec votre espace.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-        <section>
-            <h2>Portfolio</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="./images/portfolio-1.png" alt="Création IA artistique 1">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">Fusion Organique</div>
-                        <div class="portfolio-description">Une exploration de la symbiose entre formes naturelles et intelligence artificielle.</div>
+                <div class="service-card">
+                    <div class="service-title">
+                        🎓 Formation/action sur la symbiose artistique IA/Humain
+                        <span class="badge badge-new">Nouveau</span>
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="./images/portfolio-2.png" alt="Création IA artistique 2">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">Métamorphose Numérique</div>
-                        <div class="portfolio-description">L'évolution des formes traditionnelles vers une expression contemporaine assistée par l'IA.</div>
+                    <div class="service-description">
+                        Initiation et perfectionnement à la création artistique assistée par IA, adaptée à tous les niveaux. Sessions personnalisées en individuel ou en famille pour découvrir et maîtriser les outils de création IA.
                     </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="./images/portfolio-3.png" alt="Création IA artistique 3">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">Résonance Créative</div>
-                        <div class="portfolio-description">La rencontre entre l'intuition humaine et les algorithmes créatifs.</div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="./images/portfolio-4.png" alt="Création IA artistique 4">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">Perspectives Augmentées</div>
-                        <div class="portfolio-description">Une vision augmentée de la réalité à travers le prisme de l'IA.</div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="./images/portfolio-5.png" alt="Création IA artistique 5">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">Dialogue Virtuel</div>
-                        <div class="portfolio-description">L'interaction subtile entre le geste artistique et l'interprétation machine.</div>
-                    </div>
-                </div>
-                <div class="portfolio-item">
-                    <img src="./images/portfolio-6.png" alt="Création IA artistique 6">
-                    <div class="portfolio-overlay">
-                        <div class="portfolio-title">Harmonie Synthétique</div>
-                        <div class="portfolio-description">La recherche d'équilibre entre chaos numérique et ordre artistique.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-</body>
-</html>
+                    <div class="example-box">
+                        <div class="example-title">Formats proposés</div>
+                        <div class="example-grid">
+                            <div class="example-item">
+                                <strong>Atelier découverte famille (2-4 personnes)</strong>
+                                <p>Session interactive de 3h pour explorer ensemble les bases de la création avec l'IA. Idéal pour
