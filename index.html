@@ -1,4 +1,687 @@
-    body {
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thierry Voitot - Artiste IA et Formateur</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #1B3B6C;
+            --light-blue: #f0f4f5;
+            --dark-text: #333;
+            --spacing: 2rem;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-blue);
+            color: var(--dark-text);
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-blue), #2c5a8f);
+            color: white;
+            padding: var(--spacing) 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo-container {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto var(--spacing);
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: var(--spacing) auto;
+            padding: var(--spacing);
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            margin-bottom: var(--spacing);
+        }
+
+        h1 {
+            font-weight: 600;
+            margin: 0;
+            font-size: 2.2rem;
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--primary-blue);
+            padding-bottom: 0.5rem;
+            margin-top: var(--spacing);
+        }
+
+        .subtitle {
+            font-weight: 300;
+            font-size: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            padding: 1rem;
+            background: var(--light-blue);
+            border-radius: 8px;
+        }
+
+        .event-card {
+            background: white;
+            border-left: 4px solid var(--primary-blue);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-title {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .event-info {
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+        }
+
+        .event-info strong {
+            color: var(--primary-blue);
+            min-width: 80px;
+        }
+
+        .event-note {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            background-color: var(--light-blue);
+            border-radius: 4px;
+            font-style: italic;
+        }
+
+        .services-container {
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-title {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .service-description {
+            margin-bottom: 1.5rem;
+        }
+
+        .example-box {
+            background: var(--light-blue);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .example-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-blue);
+        }
+
+        .example-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .example-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .transformation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .transformation-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .transformation-caption {
+            font-style: italic;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--primary-blue);
+        }
+
+        .transformation-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .transformation-image:hover {
+            transform: scale(1.02);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 1rem;
+            text-transform: uppercase;
+        }
+
+        .badge-bestseller {
+            background: linear-gradient(135deg, #FF9950, #FF5E50);
+            color: white;
+        }
+
+        .badge-new {
+            background: linear-gradient(135deg, #50C9FF, #5050FF);
+            color: white;
+        }
+
+        .badge-past {
+            background: linear-gradient(135deg, #808080, #606060);
+            color: white;
+        }
+
+        .pricing-note {
+            background: var(--light-blue);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .contact-button {
+            display: inline-block;
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            aspect-ratio: 1;
+            background: var(--light-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.4s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: rgba(27, 59, 108, 0.9);
+            color: white;
+            padding: 1rem;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            bottom: 0;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .portfolio-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-description {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .empty-section {
+            padding: 2rem;
+            text-align: center;
+            background: var(--light-blue);
+            border-radius: 8px;
+            color: #666;
+            font-style: italic;
+        }
+
+        a {
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #2c5a8f;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: var(--spacing) 1rem;
+                padding: 1rem;
+            }
+            .portfolio-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            .transformation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="images/spiral-logo.png" alt="Logo artistique">
+        </div>
+        <h1>Thierry Voitot</h1>
+        <div class="subtitle">Artiste IA et Formateur</div>
+    </header>
+
+    <div class="container">
+        <!-- SECTION 1: Démarche artistique -->
+        <section>
+            <h2>Démarche artistique</h2>
+            <p>Une collaboration unique entre humain et intelligence artificielle, explorant la poésie visuelle et l'innovation dans l'art. Mon travail se situe à l'intersection de la créativité humaine et des possibilités infinies offertes par l'IA, créant ainsi des œuvres qui questionnent notre perception de l'art et de la technologie.</p>
+        </section>
+
+        <!-- SECTION 2: Coordonnées -->
+        <section id="contact">
+            <h2>Coordonnées</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <strong>Email</strong><br>
+                    <a href="mailto:tvoitot.ia@gmail.com">tvoitot.ia@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <strong>Téléphone</strong><br>
+                    +33 6 83 58 27 55
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Actualités et événements à venir -->
+        <section>
+            <h2>Actualités et événements à venir</h2>
+            <div class="empty-section">
+                <p>Prochains événements à venir... Restez connectés !</p>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Prestations proposées -->
+        <section>
+            <h2>Prestations proposées</h2>
+            <div class="services-container">
+                <div class="service-card">
+                    <div class="service-title">
+                        🎨 Création artistique sur mesure avec IA
+                        <span class="badge badge-bestseller">Bestseller</span>
+                    </div>
+                    <div class="service-description">
+                        Exploration des possibilités créatives offertes par l'intelligence artificielle pour créer des œuvres uniques et personnalisées. Chaque création est le fruit d'un dialogue entre vos souhaits, ma sensibilité artistique et les capacités de l'IA.
+                    </div>
+                    <div class="example-box">
+                        <div class="example-title">Exemples de réalisations</div>
+                        <div class="example-grid">
+                            <div class="example-item">
+                                <strong>Transformation poétique d'un instant de vie</strong>
+                                <p>À partir d'une photographie de la vie réelle - ici, un enfant jouant sur une balançoire en bois - je crée une œuvre unique qui transcende le moment capturé. L'intelligence artificielle devient mon pinceau pour transformer cette scène touchante en un univers enchanteur, préservant l'émotion originelle tout en y ajoutant une dimension onirique.</p>
+                                <div class="transformation-grid">
+                                    <div class="transformation-item">
+                                        <p class="transformation-caption">Photo originale</p>
+                                        <img src="images/photo-originale.jpg" alt="Photo originale d'un enfant en ciré jaune" class="transformation-image">
+                                    </div>
+                                    <div class="transformation-item">
+                                        <p class="transformation-caption">Création artistique finale</p>
+                                        <img src="images/creation-finale.jpg" alt="Œuvre transformée en illustration 3D poétique" class="transformation-image">
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="example-item">
+                                <strong>De vos souvenirs à l'art</strong>
+                                <p>Votre mémoire et vos émotions deviennent source de création. À partir de simples mots, d'une ambiance ou d'un souvenir raconté - comme ce moment précieux d'un père apprenant à son fils à faire voler un cerf-volant sur la plage de Berck - nous donnons vie à une œuvre qui capture l'essence de ces instants magiques, en y ajoutant une touche de poésie visuelle grâce à l'IA.</p>
+                                <div class="transformation-grid">
+                                    <div class="transformation-item">
+                                        <p class="transformation-caption">Œuvre artistique créée</p>
+                                        <img src="images/souvenir-description.png" alt="Interprétation artistique du souvenir" class="transformation-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-title">
+                        🎓 Formation/action sur la symbiose artistique IA/Humain
+                        <span class="badge badge-new">Nouveau</span>
+                    </div>
+                    <div class="service-description">
+                        Initiation et perfectionnement à la création artistique assistée par IA, adaptée à tous les niveaux. Sessions personnalisées en individuel ou en famille pour découvrir et maîtriser les outils IA à travers la création artistique.
+                    </div>
+                    <div class="example-box">
+                        <div class="example-title">Formats proposés</div>
+                        <div class="example-grid">
+                            <div class="example-item">
+                                <strong>Atelier découverte famille (2-4 personnes)</strong>
+                                <p>Session interactive de 3h pour explorer ensemble les bases de la création avec l'IA. Idéal pour un moment créatif en famille, chacun repart avec ses premières créations et la compréhension des outils de base.</p>
+                            </div>
+                            <div class="example-item">
+                                <strong>Formation personnalisée individuelle</strong>
+                                <p>Accompagnement sur-mesure de 2*2h (réparties sur 2 semaines) pour appréhender et utiliser les fonctions de base des outils IA selon vos objectifs spécifiques. Inclut un suivi post-formation et des ressources personnalisées.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pricing-note">
+                    Chaque projet étant unique, les tarifs sont établis sur mesure selon vos besoins spécifiques. Contactez-moi pour échanger sur votre projet et recevoir un devis personnalisé.
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="#contact" class="contact-button">Demander un devis</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Portfolio -->
+        <section>
+            <h2>Portfolio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="images/portfolio-1.png" alt="Création IA artistique 1">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Fusion Organique</div>
+                        <div class="portfolio-description">Une exploration de la symbiose entre formes naturelles et intelligence artificielle.</div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/portfolio-2.png" alt="Création IA artistique 2">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Métamorphose Numérique</div>
+                        <div class="portfolio-description">L'évolution des formes traditionnelles vers une expression contemporaine assistée par l'IA.</div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/portfolio-3.png" alt="Création IA artistique 3">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Résonance Créative</div>
+                        <div class="portfolio-description">La rencontre entre l'intuition humaine et les algorithmes créatifs.</div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/portfolio-4.png" alt="Création IA artistique 4">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Perspectives Augmentées</div>
+                        <div class="portfolio-description">Une vision augmentée de la réalité à travers le prisme de l'IA.</div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/portfolio-5.png" alt="Création IA artistique 5">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Dialogue Virtuel</div>
+                        <div class="portfolio-description">L'interaction subtile entre le geste artistique et l'interprétation machine.</div>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="images/portfolio-6.png" alt="Création IA artistique 6">
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-title">Harmonie Synthétique</div>
+                        <div class="portfolio-description">La recherche d'équilibre entre chaos numérique et ordre artistique.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Dans les médias -->
+        <section>
+            <h2>Dans les médias</h2>
+            <p>Découvrez les reportages et articles de presse mettant en lumière mon travail d'artiste et mes explorations avec l'intelligence artificielle.</p>
+            
+            <div class="event-card">
+                <div class="event-title">Reportage France 3 Bourgogne Franche-Comté</div>
+                <div class="event-details">
+                    <div class="event-info">
+                        <strong>Date :</strong>
+                        <span>Janvier 2025</span>
+                    </div>
+                    <div class="event-info">
+                        <strong>Diffusion :</strong>
+                        <span>Journal télévisé régional - France 3</span>
+                    </div>
+                </div>
+                <div class="event-note">
+                    Reportage sur mon exposition "L'art à l'ère de l'intelligence artificielle" qui s'est tenue chez Lorius. Le journaliste met en lumière ma démarche artistique et l'exploration des possibilités créatives offertes par l'IA.
+                </div>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <video width="100%" controls>
+                        <source src="videos/reportage-fr3.mp4" type="video/mp4">
+                        Votre navigateur ne supporte pas la lecture de vidéos.
+                    </video>
+                </div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-title">Article : "Il y a un processus de création derrière tout ça"</div>
+                <div class="event-details">
+                    <div class="event-info">
+                        <strong>Publication :</strong>
+                        <span>France 3 Régions</span>
+                    </div>
+                </div>
+                <div class="event-note">
+                    Un article approfondi sur ma démarche artistique et ma vision de l'IA comme outil complémentaire. "Pour Thierry, l'homme reste au centre du processus artistique. Il y a un processus de création derrière tout ça, détaille celui qui a parfois passé 100 heures à décrire précisément à la machine ce qu'il voulait."
+                </div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <div style="position: relative; width: 100%; height: 500px; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                        <object data="pdf/article-fr3-ia.pdf" type="application/pdf" width="100%" height="100%">
+                            <p>Il semble que votre navigateur ne supporte pas les PDF intégrés. 
+                            <a href="pdf/article-fr3-ia.pdf">Cliquez ici pour télécharger le PDF</a>.</p>
+                        </object>
+                    </div>
+                    <div style="margin-top: 0.5rem;">
+                        <a href="pdf/article-fr3-ia.pdf" target="_blank" class="contact-button" style="font-size: 0.9rem; padding: 0.5rem 1rem;">
+                            Ouvrir le PDF en plein écran
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: Références -->
+        <section>
+            <h2>Références</h2>
+            <p>Événements marquants et collaborations qui témoignent de mon parcours artistique avec l'intelligence artificielle :</p>
+            
+            <!-- Événements passés déplacés ici -->
+            <div class="event-card">
+                <div class="event-title">
+                    Festival Photo-Passion à Offemont
+                    <span class="badge badge-past">Passé</span>
+                </div>
+                <div class="event-details">
+                    <div class="event-info">
+                        <strong>Dates :</strong>
+                        <span>29 et 30 mars 2025</span>
+                    </div>
+                    <div class="event-info">
+                        <strong>Lieu :</strong>
+                        <span>Salle de la MIEL, Offemont</span>
+                    </div>
+                </div>
+                <div class="event-note">
+                    J'ai participé au "Week-end Découvertes" à Offemont en tant qu'exposant et animateur d'ateliers sur l'Intelligence Artificielle. Une belle occasion de partager ma passion pour la création artistique assistée par IA avec un public curieux et enthousiaste.
+                </div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <img src="images/festival-photo-passion.jpg" alt="Festival Photo-Passion" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-title">
+                    Exposition à Vauthiermont - Peintures, Sculptures, Céramiques
+                    <span class="badge badge-past">Passé</span>
+                </div>
+                <div class="event-details">
+                    <div class="event-info">
+                        <strong>Dates :</strong>
+                        <span>5 et 6 avril 2025</span>
+                    </div>
+                    <div class="event-info">
+                        <strong>Lieu :</strong>
+                        <span>Salle La Charberette, Vauthiermont</span>
+                    </div>
+                </div>
+                <div class="event-note">
+                    Exposition collective où j'ai présenté mes œuvres générées avec l'IA et animé des ateliers sur l'Art et l'Intelligence Artificielle. Le vernissage du 5 avril a rassemblé de nombreux passionnés d'art et de nouvelles technologies.
+                </div>
+                <div style="text-align: center; margin-top: 1rem;">
+                    <img src="images/exposition-vauthiermont.jpg" alt="Exposition à Vauthiermont" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+
+            <!-- Articles de presse existants -->
+            <div class="event-card">
+                <div class="event-title">L'Est Républicain - Article sur mon travail artistique</div>
+                <div class="event-details">
+                    <div class="event-info">
+                        <strong>Date :</strong>
+                        <span>15 décembre 2024</span>
+                    </div>
+                    <div class="event-info">
+                        <strong>Publication :</strong>
+                        <span>L'Est Républicain</span>
+                    </div>
+                </div>
+                <div class="event-note">
+                    Article mettant en lumière mon travail artistique et mes explorations avec l'intelligence artificielle.
+                </div>
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <img src="images/2024-12-15_Expo IA Thierry VOITOT.jpg" alt="Article de L'Est Républicain" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-title">L'Est Républicain - Café-débat sur l'Intelligence Artificielle</div>
+                <div class="event-details">
+                    <div class="event-info">
+                        <strong>Date :</strong>
+                        <span>Janvier 2025</span>
+                    </div>
+                    <div class="event-info">
+                        <strong>Publication :</strong>
+                        <span>L'Est Républicain</span>
+                    </div>
+                </div>
+                <div class="event-note">
+                    Soixante-dix personnes, âgées de 17 à 80 ans, ont participé au café-débat interactif organisé par la maison de quartier du centre-ville de Belfort sur l'intelligence artificielle (IA). Une rencontre animée par Jean-Claude Labrune, ancien professeur des universités, et moi-même, en tant que formateur et artiste explorateur IA.
+                </div>
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <img src="images/cafe-debat-ia.png" alt="Article sur le café-débat IA à Belfort" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2);">
+                </div>
+            </div>
+            
+            <div class="event-card">
+                <div class="event-title">Distinction IA Creative Art - Image de couverture</div>
+                <div class="event-details">
+                    <div class="event-info">
+                        <strong>Distinction :</strong>
+                        <span>Cover Image</span>
+                    </div>
+                    <div class="event-info">
+                        <strong>Plateforme :</strong>
+                        <span>AI & Creative Art</span>
+                    </div>
+                </div>
+                <div class="event-note">
+                    Une de mes créations artistiques générées par IA a été sélectionnée comme image de couverture par la communauté AI & Creative Art, reconnaissant la qualité et l'originalité de mon travail d'exploration artistique avec l'intelligence artificielle.
+                </div>
+                <div style="text-align:    body {
         font-family: 'Montserrat', sans-serif;
         line-height: 1.8;
         margin: 0;
@@ -339,3 +1022,4 @@
         }
     }
 </style>
+
