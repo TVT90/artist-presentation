@@ -978,6 +978,55 @@
       object-fit: contain;
       box-shadow: 0 8px 60px rgba(0,0,0,0.7);
     }
+    .lightbox video {
+      max-width: 100%;
+      max-height: 92vh;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.7);
+      background-color: #000;
+    }
+    /* Indicateur Play sur les vignettes vidéo */
+    .press-thumb.video-thumb::after {
+      content: '▶';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 64px; height: 64px;
+      background-color: rgba(201, 168, 76, 0.92);
+      color: var(--indigo-deep);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      padding-left: 4px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      transition: all .3s ease;
+    }
+    .press-thumb.video-thumb:hover::after {
+      background-color: var(--gold-bright);
+      transform: translate(-50%, -50%) scale(1.08);
+    }
+    /* Bouton lien externe sur les vignettes PDF */
+    .press-pdf-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      padding: 0.55rem 1.1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ivory);
+      border: 1px solid var(--gold-copper);
+      border-radius: 2px;
+      transition: all .3s ease;
+      align-self: flex-start;
+    }
+    .press-pdf-button:hover {
+      background-color: var(--gold-copper);
+      color: var(--indigo-deep);
+    }
     .lightbox-close {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -1486,104 +1535,269 @@
 
     <div class="press-grid">
 
+      <!-- Reportage France 3 — vidéo -->
       <article class="press-card">
-        <a class="press-thumb" href="#article-fr3-tv">
-          <div class="press-thumb placeholder">Reportage France 3</div>
+        <a class="press-thumb video-thumb" href="#article-fr3-tv">
+          <img src="images/Thierry IA.png" alt="Reportage France 3 Bourgogne-Franche-Comté" loading="lazy">
         </a>
         <div class="press-info">
           <p class="press-source">France 3 Bourgogne-Franche-Comté</p>
           <p class="press-date">Janvier 2025</p>
           <h3 class="press-title">L'art à l'ère de l'intelligence artificielle</h3>
-          <p class="press-excerpt">« Reportage sur l'exposition chez Lorius, mettant en lumière la démarche artistique avec l'IA. »</p>
+          <p class="press-excerpt">Reportage sur l'exposition chez Lorius mettant en lumière la démarche artistique avec l'IA.</p>
         </div>
       </article>
 
+      <!-- Article France 3 — PDF -->
       <article class="press-card">
-        <a class="press-thumb" href="#article-fr3">
-          <div class="press-thumb placeholder">Article France 3</div>
+        <a class="press-thumb" href="#article-fr3-img">
+          <img src="images/Thierry IA 2.png" alt="Article France 3 - processus de création" loading="lazy">
         </a>
         <div class="press-info">
           <p class="press-source">France 3 Régions</p>
           <p class="press-date">2025</p>
           <h3 class="press-title">« Il y a un processus de création derrière tout ça »</h3>
-          <p class="press-excerpt">« Pour Thierry, l'homme reste au centre du processus artistique. »</p>
+          <p class="press-excerpt">Pour Thierry, l'homme reste au centre du processus artistique.</p>
+          <a class="press-pdf-button" href="pdf/article-fr3-ia.pdf" target="_blank" rel="noopener">
+            Lire l'article ↗
+          </a>
         </div>
       </article>
 
+      <!-- Geisha Mont Fuji -->
       <article class="press-card">
         <a class="press-thumb" href="#article-geisha">
-          <div class="press-thumb placeholder">L'Est Républicain</div>
+          <img src="images/Thierry IA.png" alt="L'Est Républicain - Thierry Voitot et l'IA" loading="lazy">
         </a>
         <div class="press-info">
           <p class="press-source">L'Est Républicain · Châtenois-les-Forges</p>
           <p class="press-date">2025</p>
           <h3 class="press-title">Thierry Voitot utilise l'intelligence artificielle pour créer</h3>
-          <p class="press-excerpt">« Sous le pseudonyme Nova and I, La geisha au Mont Fuji — œuvre cloisonné vitrail. »</p>
+          <p class="press-excerpt">Sous le pseudonyme Nova and I, La geisha au Mont Fuji — œuvre cloisonné vitrail.</p>
         </div>
       </article>
 
+      <!-- Pari audacieux -->
       <article class="press-card">
         <a class="press-thumb" href="#article-alliance">
-          <div class="press-thumb placeholder">L'Est Républicain</div>
+          <img src="images/Thierry IA 2.png" alt="L'Est Républicain - L'IA comme partenaire artistique" loading="lazy">
         </a>
         <div class="press-info">
           <p class="press-source">L'Est Républicain · Châtenois-les-Forges</p>
           <p class="press-date">24 mai 2025</p>
           <h3 class="press-title">L'IA comme partenaire artistique, le pari audacieux de Thierry Voitot</h3>
-          <p class="press-excerpt">« C'est une véritable alliée, mais je ne délègue pas ma créativité. »</p>
+          <p class="press-excerpt">C'est une véritable alliée, mais je ne délègue pas ma créativité.</p>
         </div>
       </article>
 
+      <!-- Guilde des Poètes -->
       <article class="press-card">
         <a class="press-thumb" href="#article-guilde">
-          <div class="press-thumb placeholder">L'Est Républicain</div>
+          <img src="images/La Guilde des Poètes.png" alt="L'Est Républicain - La Guilde des poètes" loading="lazy">
         </a>
         <div class="press-info">
           <p class="press-source">L'Est Républicain · Grand Belfort</p>
           <p class="press-date">4 juin 2025</p>
           <h3 class="press-title">La Guilde des poètes renoue avec la tradition des salons des Lumières</h3>
-          <p class="press-excerpt">« À l'ère du tout numérique, ressurgit ce besoin viscéral de création partagée. »</p>
+          <p class="press-excerpt">À l'ère du tout numérique, ressurgit ce besoin viscéral de création partagée.</p>
         </div>
       </article>
 
+      <!-- Les Fêlés mêlent poésie et IA — 10 avril 2026 -->
       <article class="press-card">
         <a class="press-thumb" href="#article-feles">
-          <div class="press-thumb placeholder">L'Est Républicain</div>
+          <img src="images/presse-feles-2026-04.jpg" alt="L'Est Républicain - Les Fêlés mêlent poésie et IA" loading="lazy">
         </a>
         <div class="press-info">
           <p class="press-source">L'Est Républicain · Grand Belfort</p>
           <p class="press-date">10 avril 2026</p>
           <h3 class="press-title">Les Fêlés mêlent poésie et intelligence artificielle</h3>
-          <p class="press-excerpt">« Nous souhaitons montrer ses possibilités de développement dans des services d'animation. »</p>
+          <p class="press-excerpt">Nous souhaitons montrer ses possibilités de développement dans des services d'animation.</p>
         </div>
       </article>
 
+      <!-- Café-débat IA Belfort -->
       <article class="press-card">
         <a class="press-thumb" href="#article-cafe">
-          <div class="press-thumb placeholder">Café-débat IA</div>
+          <img src="images/cafe-debat-ia.png" alt="Café-débat IA à Belfort" loading="lazy">
         </a>
         <div class="press-info">
           <p class="press-source">L'Est Républicain · Belfort</p>
           <p class="press-date">Janvier 2025</p>
           <h3 class="press-title">Café-débat sur l'Intelligence Artificielle</h3>
-          <p class="press-excerpt">« Soixante-dix personnes, de 17 à 80 ans, ont participé au café-débat interactif. »</p>
+          <p class="press-excerpt">Soixante-dix personnes, de 17 à 80 ans, ont participé au café-débat interactif.</p>
         </div>
       </article>
 
+      <!-- AI Cover Image #1 -->
       <article class="press-card">
-        <a class="press-thumb" href="#article-cover">
-          <div class="press-thumb placeholder">AI &amp; Creative Art</div>
+        <a class="press-thumb" href="#article-cover-1">
+          <img src="images/Recomposenc1.jpg" alt="Distinction AI Creative Art - Cover Image 1" loading="lazy">
         </a>
         <div class="press-info">
           <p class="press-source">AI &amp; Creative Art International</p>
-          <p class="press-date">Distinction · Cover Images</p>
-          <h3 class="press-title">Distinction internationale — Images de couverture</h3>
-          <p class="press-excerpt">« Sélectionné comme image de couverture par la communauté internationale AI &amp; Creative Art. »</p>
+          <p class="press-date">Distinction · Cover Image</p>
+          <h3 class="press-title">Distinction internationale — Image de couverture</h3>
+          <p class="press-excerpt">Sélectionné par la communauté internationale AI &amp; Creative Art pour la qualité d'une œuvre Nova and I.</p>
+        </div>
+      </article>
+
+      <!-- AI Cover Image #2 -->
+      <article class="press-card">
+        <a class="press-thumb" href="#article-cover-2">
+          <img src="images/Recompose2.jpg" alt="Distinction AI Creative Art - Cover Image 2" loading="lazy">
+        </a>
+        <div class="press-info">
+          <p class="press-source">AI &amp; Creative Art International</p>
+          <p class="press-date">Distinction · Cover Image</p>
+          <h3 class="press-title">Deuxième sélection internationale</h3>
+          <p class="press-excerpt">Une seconde œuvre de Nova and I retenue par la communauté internationale AI &amp; Creative Art.</p>
         </div>
       </article>
 
     </div>
   </section>
+
+  <!-- ===========  RÉFÉRENCES & ÉVÉNEMENTS PASSÉS  =========== -->
+  <section class="press" id="references">
+
+    <div class="section-header">
+      <h2>Références &amp; <em>parcours</em></h2>
+      <div class="section-divider"><span>expositions · festivals · engagements</span></div>
+    </div>
+
+    <div class="press-grid">
+
+      <!-- Festival Photo-Passion Offemont -->
+      <article class="press-card">
+        <a class="press-thumb" href="#ref-photo-passion">
+          <img src="images/festival-photo-passion.jpg" alt="Festival Photo-Passion à Offemont" loading="lazy">
+        </a>
+        <div class="press-info">
+          <p class="press-source">Salle de la MIEL · Offemont</p>
+          <p class="press-date">29-30 mars 2025</p>
+          <h3 class="press-title">Festival Photo-Passion — Week-end Découvertes</h3>
+          <p class="press-excerpt">Exposant et animateur d'ateliers IA. Une rencontre avec un public curieux et enthousiaste.</p>
+        </div>
+      </article>
+
+      <!-- Vauthiermont -->
+      <article class="press-card">
+        <a class="press-thumb" href="#ref-vauthiermont">
+          <img src="images/exposition-vauthiermont.jpg" alt="Exposition à Vauthiermont" loading="lazy">
+        </a>
+        <div class="press-info">
+          <p class="press-source">Salle La Charberette · Vauthiermont</p>
+          <p class="press-date">5-6 avril 2025</p>
+          <h3 class="press-title">Exposition collective — Peintures, Sculptures, Céramiques</h3>
+          <p class="press-excerpt">Présentation des œuvres Nova and I et animation d'ateliers Art &amp; Intelligence Artificielle.</p>
+        </div>
+      </article>
+
+      <!-- Expo Lorius décembre 2024 -->
+      <article class="press-card">
+        <a class="press-thumb" href="#ref-lorius">
+          <img src="images/2024-12-15_Expo IA Thierry VOITOT.jpg" alt="Exposition IA chez Lorius - décembre 2024" loading="lazy">
+        </a>
+        <div class="press-info">
+          <p class="press-source">Galerie Lorius · Brognard</p>
+          <p class="press-date">Décembre 2024</p>
+          <h3 class="press-title">Exposition « L'art à l'ère de l'IA »</h3>
+          <p class="press-excerpt">Première exposition dédiée à la démarche Nova and I, couverte par France 3 Bourgogne-Franche-Comté.</p>
+        </div>
+      </article>
+
+      <!-- Soutien Tchernobyl -->
+      <article class="press-card">
+        <a class="press-thumb" href="#ref-tchernobyl">
+          <img src="images/Enfants Tchernobyl.png" alt="Les Enfants de Tchernobyl - solidarité" loading="lazy">
+        </a>
+        <div class="press-info">
+          <p class="press-source">Association · Châtenois-les-Forges</p>
+          <p class="press-date">Engagement humanitaire</p>
+          <h3 class="press-title">Les Enfants de Tchernobyl — soutien et donateur</h3>
+          <p class="press-excerpt">Sympathisant et donateur de l'association qui, depuis 1993, accueille des enfants ukrainiens en France.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- =========  LIGHTBOXES PRESSE & RÉFÉRENCES  ========= -->
+
+  <!-- Lightbox vidéo France 3 -->
+  <div class="lightbox" id="article-fr3-tv">
+    <a class="lightbox-close" href="#presse"></a>
+    <a class="lightbox-x" href="#presse" aria-label="Fermer">×</a>
+    <video controls preload="metadata">
+      <source src="videos/reportage-fr3.mp4" type="video/mp4">
+      Votre navigateur ne supporte pas la lecture de vidéos.
+    </video>
+  </div>
+
+  <!-- Lightboxes images presse -->
+  <div class="lightbox" id="article-fr3-img">
+    <a class="lightbox-close" href="#presse"></a>
+    <a class="lightbox-x" href="#presse" aria-label="Fermer">×</a>
+    <img src="images/Thierry IA 2.png" alt="Article France 3 - vue détaillée">
+  </div>
+  <div class="lightbox" id="article-geisha">
+    <a class="lightbox-close" href="#presse"></a>
+    <a class="lightbox-x" href="#presse" aria-label="Fermer">×</a>
+    <img src="images/Thierry IA.png" alt="L'Est Républicain - Geisha Mont Fuji - vue détaillée">
+  </div>
+  <div class="lightbox" id="article-alliance">
+    <a class="lightbox-close" href="#presse"></a>
+    <a class="lightbox-x" href="#presse" aria-label="Fermer">×</a>
+    <img src="images/Thierry IA 2.png" alt="L'Est Républicain - Pari audacieux - vue détaillée">
+  </div>
+  <div class="lightbox" id="article-guilde">
+    <a class="lightbox-close" href="#presse"></a>
+    <a class="lightbox-x" href="#presse" aria-label="Fermer">×</a>
+    <img src="images/La Guilde des Poètes.png" alt="La Guilde des Poètes - vue détaillée">
+  </div>
+  <div class="lightbox" id="article-feles">
+    <a class="lightbox-close" href="#presse"></a>
+    <a class="lightbox-x" href="#presse" aria-label="Fermer">×</a>
+    <img src="images/presse-feles-2026-04.jpg" alt="Les Fêlés mêlent poésie et IA - vue détaillée">
+  </div>
+  <div class="lightbox" id="article-cafe">
+    <a class="lightbox-close" href="#presse"></a>
+    <a class="lightbox-x" href="#presse" aria-label="Fermer">×</a>
+    <img src="images/cafe-debat-ia.png" alt="Café-débat IA Belfort - vue détaillée">
+  </div>
+  <div class="lightbox" id="article-cover-1">
+    <a class="lightbox-close" href="#presse"></a>
+    <a class="lightbox-x" href="#presse" aria-label="Fermer">×</a>
+    <img src="images/Recomposenc1.jpg" alt="AI Cover Image 1 - vue détaillée">
+  </div>
+  <div class="lightbox" id="article-cover-2">
+    <a class="lightbox-close" href="#presse"></a>
+    <a class="lightbox-x" href="#presse" aria-label="Fermer">×</a>
+    <img src="images/Recompose2.jpg" alt="AI Cover Image 2 - vue détaillée">
+  </div>
+
+  <!-- Lightboxes références -->
+  <div class="lightbox" id="ref-photo-passion">
+    <a class="lightbox-close" href="#references"></a>
+    <a class="lightbox-x" href="#references" aria-label="Fermer">×</a>
+    <img src="images/festival-photo-passion.jpg" alt="Festival Photo-Passion - vue détaillée">
+  </div>
+  <div class="lightbox" id="ref-vauthiermont">
+    <a class="lightbox-close" href="#references"></a>
+    <a class="lightbox-x" href="#references" aria-label="Fermer">×</a>
+    <img src="images/exposition-vauthiermont.jpg" alt="Exposition Vauthiermont - vue détaillée">
+  </div>
+  <div class="lightbox" id="ref-lorius">
+    <a class="lightbox-close" href="#references"></a>
+    <a class="lightbox-x" href="#references" aria-label="Fermer">×</a>
+    <img src="images/2024-12-15_Expo IA Thierry VOITOT.jpg" alt="Exposition Lorius - vue détaillée">
+  </div>
+  <div class="lightbox" id="ref-tchernobyl">
+    <a class="lightbox-close" href="#references"></a>
+    <a class="lightbox-x" href="#references" aria-label="Fermer">×</a>
+    <img src="images/Enfants Tchernobyl.png" alt="Les Enfants de Tchernobyl - vue détaillée">
+  </div>
 
   <!-- ===========  CONTACT  =========== -->
   <section class="contact" id="contact">
