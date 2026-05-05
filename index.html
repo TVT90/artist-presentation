@@ -440,7 +440,7 @@
       margin-top: 2rem;
     }
     .collection-image {
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 3 / 4;
       background: var(--indigo-mid);
       border: 1px solid var(--indigo-soft);
       border-radius: 4px;
@@ -448,6 +448,7 @@
       position: relative;
       cursor: zoom-in;
       transition: transform .3s ease, border-color .3s ease;
+      display: block;
     }
     .collection-image:hover {
       transform: scale(1.03);
@@ -460,6 +461,24 @@
       transition: transform .5s ease;
     }
     .collection-image:hover img { transform: scale(1.05); }
+    /* Indicateur de zoom au hover */
+    .collection-image::after {
+      content: '⊕';
+      position: absolute;
+      bottom: 10px; right: 10px;
+      width: 32px; height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(201, 168, 76, 0.9);
+      color: var(--indigo-deep);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      opacity: 0;
+      transition: opacity .3s ease;
+      pointer-events: none;
+    }
+    .collection-image:hover::after { opacity: 1; }
     /* Placeholder en attente des vraies images */
     .collection-image.placeholder {
       display: flex;
@@ -474,16 +493,49 @@
       font-style: italic;
       font-size: 0.9rem;
       letter-spacing: 0.1em;
+      cursor: default;
     }
     .collection-image.placeholder::after {
       content: '';
-      position: absolute;
-      inset: 8px;
+      background: none;
       border: 1px solid rgba(201, 168, 76, 0.2);
-      pointer-events: none;
+      inset: 8px;
+      width: auto; height: auto;
+      bottom: auto; right: auto;
+      opacity: 1;
+      border-radius: 0;
     }
     @media (max-width: 700px) {
       .collection-images { grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+    }
+    /* Vignette enrichie avec légende (titre + description sous l'image) */
+    .collection-piece {
+      display: flex;
+      flex-direction: column;
+    }
+    .collection-piece-caption {
+      margin-top: 0.7rem;
+      text-align: center;
+      padding: 0 0.3rem;
+    }
+    .collection-piece-caption h5 {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--gold-copper);
+      margin-bottom: 0.2rem;
+      line-height: 1.2;
+    }
+    .collection-piece-caption .desc {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.85rem;
+      color: var(--ivory-soft);
+      line-height: 1.4;
+    }
+    @media (max-width: 700px) {
+      .collection-piece-caption h5 { font-size: 0.95rem; }
+      .collection-piece-caption .desc { font-size: 0.78rem; }
     }
 
     /* =========  VOLET COMPOSITEUR — LES FÊLÉS  ========= */
@@ -1288,9 +1340,37 @@
           <p class="collection-tagline">Portraits kintsugi sur dibond avec relief résine 3D — la lumière qui passe par les fissures.</p>
         </header>
         <div class="collection-images">
-          <div class="collection-image placeholder">image à venir</div>
-          <div class="collection-image placeholder">image à venir</div>
-          <div class="collection-image placeholder">image à venir</div>
+
+          <div class="collection-piece">
+            <a class="collection-image" href="#or-failles-1">
+              <img src="images/or-failles-1.jpg" alt="La contemplation abyssale — portrait kintsugi bleu profond, fissures dorées" loading="lazy">
+            </a>
+            <div class="collection-piece-caption">
+              <h5>La contemplation abyssale</h5>
+              <p class="desc">Le penseur de pierre, traversé d'or — l'introspection devient lumière.</p>
+            </div>
+          </div>
+
+          <div class="collection-piece">
+            <a class="collection-image" href="#or-failles-2">
+              <img src="images/or-failles-2.jpg" alt="La tendresse infinie — portrait kintsugi crème et or, mains qui encadrent le visage" loading="lazy">
+            </a>
+            <div class="collection-piece-caption">
+              <h5>La tendresse infinie</h5>
+              <p class="desc">Visage de porcelaine, cils d'or, mains qui protègent — la douceur qui répare.</p>
+            </div>
+          </div>
+
+          <div class="collection-piece">
+            <a class="collection-image" href="#or-failles-3">
+              <img src="images/or-failles-3.jpg" alt="La sagesse ancestrale — portrait kintsugi pierre grise, méditation en or" loading="lazy">
+            </a>
+            <div class="collection-piece-caption">
+              <h5>La sagesse ancestrale</h5>
+              <p class="desc">Le visage du temps, fissuré et serein — chaque ride devient un chemin de lumière.</p>
+            </div>
+          </div>
+
         </div>
       </article>
 
@@ -1797,6 +1877,23 @@
     <a class="lightbox-close" href="#references"></a>
     <a class="lightbox-x" href="#references" aria-label="Fermer">×</a>
     <img src="images/Enfants Tchernobyl.png" alt="Les Enfants de Tchernobyl - vue détaillée">
+  </div>
+
+  <!-- =========  LIGHTBOXES NOVA AND I — L'OR DES FAILLES  ========= -->
+  <div class="lightbox" id="or-failles-1">
+    <a class="lightbox-close" href="#nova-and-i"></a>
+    <a class="lightbox-x" href="#nova-and-i" aria-label="Fermer">×</a>
+    <img src="images/or-failles-1.jpg" alt="La contemplation abyssale - vue détaillée">
+  </div>
+  <div class="lightbox" id="or-failles-2">
+    <a class="lightbox-close" href="#nova-and-i"></a>
+    <a class="lightbox-x" href="#nova-and-i" aria-label="Fermer">×</a>
+    <img src="images/or-failles-2.jpg" alt="La tendresse infinie - vue détaillée">
+  </div>
+  <div class="lightbox" id="or-failles-3">
+    <a class="lightbox-close" href="#nova-and-i"></a>
+    <a class="lightbox-x" href="#nova-and-i" aria-label="Fermer">×</a>
+    <img src="images/or-failles-3.jpg" alt="La sagesse ancestrale - vue détaillée">
   </div>
 
   <!-- ===========  CONTACT  =========== -->
