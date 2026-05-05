@@ -702,7 +702,7 @@
       gap: 1.5rem;
     }
     .album-card {
-      aspect-ratio: 1;
+      min-height: 280px;
       background: linear-gradient(135deg,
         rgba(201, 168, 76, 0.1) 0%,
         rgba(42, 48, 80, 0.5) 100%);
@@ -748,6 +748,26 @@
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--gold-copper);
+    }
+    .album-card .extrait-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.92rem;
+      color: var(--ivory-soft);
+      margin: 0.5rem 0 0.7rem;
+      line-height: 1.3;
+      text-align: center;
+    }
+    .album-card audio {
+      width: 100%;
+      max-width: 200px;
+      height: 32px;
+      margin-top: 0.4rem;
+      filter: sepia(0.3) saturate(1.2) hue-rotate(-15deg);
+      border-radius: 16px;
+    }
+    .album-card audio::-webkit-media-controls-panel {
+      background-color: rgba(26, 31, 58, 0.8);
     }
 
     /* CTA YouTube */
@@ -1662,17 +1682,32 @@
           <div class="album-card">
             <span class="icon">◈</span>
             <h4>Dolmen</h4>
-            <p class="status">Prêt</p>
+            <p class="status">Extrait</p>
+            <p class="extrait-title">Stonehenge, le cercle mystérieux</p>
+            <audio controls preload="none">
+              <source src="audio/dolmen-extrait.mp3" type="audio/mpeg">
+              Votre navigateur ne supporte pas la lecture audio.
+            </audio>
           </div>
           <div class="album-card">
             <span class="icon">◈</span>
             <h4>Les Ballades médiévales</h4>
-            <p class="status">Prêt</p>
+            <p class="status">Extrait</p>
+            <p class="extrait-title">Combats</p>
+            <audio controls preload="none">
+              <source src="audio/medievales-extrait.mp3" type="audio/mpeg">
+              Votre navigateur ne supporte pas la lecture audio.
+            </audio>
           </div>
           <div class="album-card">
             <span class="icon">◈</span>
             <h4>Astres</h4>
-            <p class="status">Prêt</p>
+            <p class="status">Extrait</p>
+            <p class="extrait-title">Cosmos · instrumental</p>
+            <audio controls preload="none">
+              <source src="audio/astres-extrait.mp3" type="audio/mpeg">
+              Votre navigateur ne supporte pas la lecture audio.
+            </audio>
           </div>
         </div>
       </div>
