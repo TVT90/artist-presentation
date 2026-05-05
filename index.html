@@ -450,6 +450,8 @@
       transition: transform .3s ease, border-color .3s ease;
       display: block;
     }
+    /* Modificateur paysage pour les œuvres en orientation horizontale */
+    .collection-images.landscape .collection-image { aspect-ratio: 4 / 3; }
     .collection-image:hover {
       transform: scale(1.03);
       border-color: var(--gold-copper);
@@ -1311,12 +1313,40 @@
         <header class="collection-header">
           <span class="collection-num">Collection I</span>
           <h3 class="collection-name">L'Homme Nature</h3>
-          <p class="collection-tagline">Symbiose homme-plante — dibond avec relief résine 3D.</p>
+          <p class="collection-tagline">Quand l'humain devient nature — fusions des règnes vivants.</p>
         </header>
-        <div class="collection-images">
-          <div class="collection-image placeholder">image à venir</div>
-          <div class="collection-image placeholder">image à venir</div>
-          <div class="collection-image placeholder">image à venir</div>
+        <div class="collection-images landscape">
+
+          <div class="collection-piece">
+            <a class="collection-image" href="#homme-nature-1">
+              <img src="images/homme-nature-1.jpg" alt="La Couronne de myco — visage humain couronné d'amanites tachetées dans la forêt" loading="lazy">
+            </a>
+            <div class="collection-piece-caption">
+              <h5>La Couronne de myco</h5>
+              <p class="desc">L'humain levé vers la canopée, couronné par les amanites — fusion mycélienne du visible et de l'invisible.</p>
+            </div>
+          </div>
+
+          <div class="collection-piece">
+            <a class="collection-image" href="#homme-nature-2">
+              <img src="images/homme-nature-2.jpg" alt="Le Regard de l'arbre — visage humain dans l'écorce, deux yeux verts vivants" loading="lazy">
+            </a>
+            <div class="collection-piece-caption">
+              <h5>Le Regard de l'arbre</h5>
+              <p class="desc">L'écorce devient peau, et soudain deux yeux verts ouvrent l'éternité du bois.</p>
+            </div>
+          </div>
+
+          <div class="collection-piece">
+            <a class="collection-image" href="#homme-nature-3">
+              <img src="images/homme-nature-3.jpg" alt="La Lente communion — visage de pierre recouvert de mousse et de fougères" loading="lazy">
+            </a>
+            <div class="collection-piece-caption">
+              <h5>La Lente communion</h5>
+              <p class="desc">Le visage retourne à la terre, fougères pour cheveux, mousse pour caresses — la dissolution sereine.</p>
+            </div>
+          </div>
+
         </div>
       </article>
 
@@ -1894,6 +1924,23 @@
     <a class="lightbox-close" href="#nova-and-i"></a>
     <a class="lightbox-x" href="#nova-and-i" aria-label="Fermer">×</a>
     <img src="images/or-failles-3.jpg" alt="La sagesse ancestrale - vue détaillée">
+  </div>
+
+  <!-- =========  LIGHTBOXES NOVA AND I — L'HOMME NATURE  ========= -->
+  <div class="lightbox" id="homme-nature-1">
+    <a class="lightbox-close" href="#nova-and-i"></a>
+    <a class="lightbox-x" href="#nova-and-i" aria-label="Fermer">×</a>
+    <img src="images/homme-nature-1.jpg" alt="La Couronne de myco - vue détaillée">
+  </div>
+  <div class="lightbox" id="homme-nature-2">
+    <a class="lightbox-close" href="#nova-and-i"></a>
+    <a class="lightbox-x" href="#nova-and-i" aria-label="Fermer">×</a>
+    <img src="images/homme-nature-2.jpg" alt="Le Regard de l'arbre - vue détaillée">
+  </div>
+  <div class="lightbox" id="homme-nature-3">
+    <a class="lightbox-close" href="#nova-and-i"></a>
+    <a class="lightbox-x" href="#nova-and-i" aria-label="Fermer">×</a>
+    <img src="images/homme-nature-3.jpg" alt="La Lente communion - vue détaillée">
   </div>
 
   <!-- ===========  CONTACT  =========== -->
